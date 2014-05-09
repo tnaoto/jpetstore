@@ -11,7 +11,7 @@ create table if not exists supplier (
     zip varchar(5) null,
     phone varchar(80) null,
 primary key (suppid))
-type=innodb
+ENGINE=innodb
 min_rows=0
 max_rows=1000
 pack_keys=default
@@ -43,7 +43,7 @@ create table if not exists account (
     country varchar(20) not null,
     phone varchar(80) not null,
 primary key (userid) )
-type=innodb
+ENGINE=innodb
 min_rows=0
 max_rows=1000
 pack_keys=default
@@ -57,7 +57,7 @@ create table if not exists profile (
     mylistopt bool,
     banneropt bool,
 primary key (userid) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='cadastro de perfis';
@@ -66,7 +66,7 @@ create table if not exists bannerdata (
     favcategory varchar(80) not null,
     bannername varchar(255)  null,
 primary key (favcategory))
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='banner data';
@@ -98,7 +98,7 @@ create table if not exists orders (
       cardtype varchar(80) not null,
       locale varchar(80) not null,
 primary key (orderid) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='cadastro de pedidos';
@@ -109,7 +109,7 @@ create table if not exists orderstatus (
       timestamp date not null,
       status varchar(2) not null,
 primary key (orderid, linenum) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='status de pedidos';
@@ -121,7 +121,7 @@ create table if not exists lineitem (
       quantity int not null,
       unitprice decimal(10,2) not null,
 primary key (orderid, linenum) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='line item';
@@ -131,7 +131,7 @@ create table if not exists category (
 	name varchar(80) null,
 	descn varchar(255) null,
 primary key (catid) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='categorias';
@@ -142,7 +142,7 @@ create table if not exists product (
     name varchar(80) null,
     descn varchar(255) null,
 primary key (productid) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='categorias';
@@ -174,7 +174,7 @@ create table if not exists item (
     attr4 varchar(80) null,
     attr5 varchar(80) null,
 primary key (itemid) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='itens';
@@ -196,7 +196,7 @@ create table if not exists inventory (
     itemid varchar(10) not null,
     qty int not null,
 primary key (itemid) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='inventory';
@@ -205,7 +205,7 @@ create table if not exists sequence (
     name               varchar(30)  not null,
     nextid             int          not null,
 primary key (name) )
-type=innodb
+ENGINE=innodb
 pack_keys=default
 row_format=default
 comment='inventory';
