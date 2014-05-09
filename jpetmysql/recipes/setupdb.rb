@@ -1,11 +1,11 @@
 node[:deploy].each do |app_name, deploy|
 
-  file "/tmp/jpetstore-mysql-schema.sql" do
-     mode 00644
+  cookbook_file "/tmp/jpetstore-mysql-schema.sql" do
+     source "jpetstore-mysql-schema.sql"
   end
 
-  file "/tmp/jpetstore-mysql-dataload.sql" do
-      mode 00644
+  cookbook_file "/tmp/jpetstore-mysql-dataload.sql" do
+     source "jpetstore-mysql-dataload.sql"
   end
 
   mysql_command = "/usr/bin/mysql -u#{deploy[:database][:username]} -p#{deploy[:database][:password]} #{deploy[:database][:database]}"
