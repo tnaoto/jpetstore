@@ -12,13 +12,13 @@ node[:deploy].each do |app_name, deploy|
 
   execute "execute-query" do
      command "#{mysql_command} < /tmp/jpetstore-mysql-schema.sql"
-     not_if "#{mysql_command} -e 'SHOW TABLES' | grep #{node[:mysql][:dbtable]}"
+     not_if "#{mysql_command} -e 'SHOW TABLES' | grep #{deploy[:database][:database]}"
      action :run
   end
 
   execute "execute-query-load" do
      command "#{mysql_command} < /tmp/jpetstore-mysql-dataload.sql"
-     not_if "#{mysql_command} -e 'SHOW TABLES' | grep #{node[:mysql][:dbtable]}"
+     not_if "#{mysql_command} -e 'SHOW TABLES' | grep #{deploy[:database][:database]}"
      action :run
   end
 end
