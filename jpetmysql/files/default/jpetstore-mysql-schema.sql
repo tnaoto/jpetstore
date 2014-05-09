@@ -22,7 +22,7 @@ create table if not exists signon (
     username varchar(25) not null,
     password varchar(25)  not null,
 primary key (username))
-type=innodb
+ENGINE=innodb
 min_rows=0
 max_rows=1000
 pack_keys=default
